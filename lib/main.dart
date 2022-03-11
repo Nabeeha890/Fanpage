@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             await FirebaseHelper.signInWithEmailPass(
                                 widget.emailController.text,
                                 widget.passController.text);
+
                         if (userCredential.user != null) {
                           var uID = userCredential.user!.uid;
                           var snapshot = await FirebaseFirestore.instance
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      HomeScreen(userCredential, snapshot)));
+                                      HomeScreen(userCredential)));
                         }
                       } catch (e) {
                         print("User not found");
@@ -112,8 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                HomeScreen(userCredential, snapshot)));
+                            builder: (context) => HomeScreen(userCredential)));
                   }
                 },
                 child: Text("Sign in with Google")),

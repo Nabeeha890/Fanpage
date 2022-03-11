@@ -9,8 +9,7 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
   final UserCredential userCredential;
-  final DocumentSnapshot snapshot;
-  const HomeScreen(this.userCredential, this.snapshot);
+  const HomeScreen(this.userCredential);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -75,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      floatingActionButton: _getFAB(widget.snapshot),
+      //floatingActionButton: _getFAB(widget.snapshot),
     );
   }
 
